@@ -7,6 +7,11 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>This is the home page !!!</h1>
+    <h1>All the Camps:</h1>
+    <ul>
+    <% for(let camp of camps) {%>
+       <a href="/campgrounds/<%=  camp._id %>""> <li><%= camp.title %> </li></a>
+        <% } %> 
+</ul>
 </body>
 </html>
