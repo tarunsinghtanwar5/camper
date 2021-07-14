@@ -26,6 +26,16 @@ app.get('/campgrounds',async (req,res)=>{
     res.render('campgrounds/home',{camps});
 })
 
+//create new
+app.get('/campgrounds/new', (req, res) => {
+	res.render('campgrounds/new');
+})
+
+app.post('/campgrounds', async (req, res) => {
+	const camp = new Campground(req.body);
+	await camp.save();
+	res.redirect(`/campgrounds/${camp._id}`)
+})
 
 
 // details page
@@ -47,13 +57,16 @@ app.get('/campgrounds/:id/edit', async (req, res) => {
 
 app.put('/campgrounds/:id',async (req,res)=>{
 	const { id } = req.params;
-	const camp = await Camp.findByIdAndUpdate(id, { ...req.body});
+	const camp = await Campground.findByIdAndUpdate(id, { ...req.body});
 	res.redirect(`/campgrounds/${camp._id}`)
 })
+//delete
 
-
-
-
+app.delete('/campgrounds/:id',async (req,res)=>{
+	const {id } = req.params;
+	await Campground.findByIdAndDelete(id);
+	res.redirect('/campgrounds');
+})
 
 
 
