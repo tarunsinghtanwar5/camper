@@ -7,6 +7,7 @@ const Campground = require('./models/campground');
 const ejsMate = require('ejs-mate');
 const catchAsync=require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
+const { campgroundSchema } = require('./schemas.js');
 mongoose
 	.connect('mongodb://localhost:27017/camper', { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => {
@@ -24,6 +25,17 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
+const validateCampground = (req, res, next) => {
+	const { error } = campgroundSchema.validate(req.body);
+	if (error) {
+		const msg = error.details.map(el => el.message).join(',')
+		throw new ExpressError(msg, 400)
+	} else {
+		next();
+	}
+}
+
+
 //index page 
 app.get('/campgrounds', catchAsync(async (req,res)=>{
 	const camps= await Campground.find({});
@@ -35,7 +47,7 @@ app.get('/campgrounds/new', (req, res) => {
 	res.render('campgrounds/new');
 })
 
-app.post('/campgrounds', catchAsync(async (req, res,next) => {
+app.post('/campgrounds', validateCampground, catchAsync(async (req, res,next) => {
 	
 	const camp = new Campground(req.body);
 	await camp.save();
@@ -61,7 +73,7 @@ app.get('/campgrounds/:id/edit', catchAsync(async (req, res) => {
 	res.render('campgrounds/edit', { camp })
 }))
 
-app.put('/campgrounds/:id', catchAsync(async (req,res)=>{
+app.put('/campgrounds/:id', validateCampground, catchAsync(async (req,res)=>{
 	const { id } = req.params;
 	const camp = await Campground.findByIdAndUpdate(id, { ...req.body});
 	res.redirect(`/campgrounds/${camp._id}`)
@@ -77,10 +89,10 @@ app.all('*',(req,res,next)=>{
 	next(new ExpressError('Page not found',404));
 })
 //this is to throw errors
-app.use((err,req,res,next)=>{
-	const {statusCode=500,message='Something went wrong'}=err;
-	res.status(statusCode).send(message);
-	
+app.use((err, req, res, next) => {
+	const { statusCode = 500 } = err;
+	if (!err.message) err.message = 'Oh No, Something Went Wrong!'
+	res.status(statusCode).render('error', { err })
 })
 
 app.listen(3000, () => {

@@ -1,0 +1,68 @@
+[33mcommit 9326ee26770c2b69f74c7cb479750ec517738c50[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 4494b6a 3b8440a
+Author: tarunsinghtanwar <tarunsinghtanwar14@gmail.com>
+Date:   Sun Jul 25 16:16:57 2021 +0530
+
+    Merge branch 'main' of https://github.com/tarunsinghtanwar5/camper into main
+
+[33mcommit 4494b6ae254b6e307511a8ec0765eb0af619638a[m
+Author: tarunsinghtanwar <tarunsinghtanwar14@gmail.com>
+Date:   Sun Jul 25 16:16:42 2021 +0530
+
+    Update app.js
+    
+    updated error handler
+
+[33mcommit 3b8440aabc265a0f122f1759f58609ed7cc2a0bd[m
+Author: tarunsinghtanwar <87063121+tarunsinghtanwar5@users.noreply.github.com>
+Date:   Sun Jul 25 15:34:42 2021 +0530
+
+    Create README.md
+
+[33mcommit a6f467fc364c3706e1672fc9eefd14c976f8e570[m
+Author: Tarun Singh Tanwar <tarunsinghtanwar14@gmail.com>
+Date:   Sun Jul 25 14:56:41 2021 +0530
+
+    added 404 routes
+
+[33mcommit 74ea2e6dacacea13db0644575dbaaf9e8d6286f1[m
+Author: Tarun Singh Tanwar <tarunsinghtanwar14@gmail.com>
+Date:   Sun Jul 25 14:37:05 2021 +0530
+
+    added error handling to all the routes
+
+[33mcommit 3393d1c4eef44f20c826bdb0383457886f8ad08c[m
+Author: Tarun Singh Tanwar <tarunsinghtanwar14@gmail.com>
+Date:   Sat Jul 24 21:16:23 2021 +0530
+
+    added bootstrap styling to the pages
+
+[33mcommit 3dfb91909481a402d869245887a364de1e03fdaa[m
+Author: Tarun Singh Tanwar <tarunsinghtanwar14@gmail.com>
+Date:   Mon Jul 19 20:01:09 2021 +0530
+
+    added ejs-mate for partials
+
+[33mcommit 0acf201d36468acbbeb3b20298125b3e028b36a1[m
+Author: Tarun Singh Tanwar <tarunsinghtanwar14@gmail.com>
+Date:   Wed Jul 14 15:58:21 2021 +0530
+
+    added create new, edit and delete any camps functionality
+
+[33mcommit 7756cf6ad60c41adb2032bab4b3d8a237073ef1d[m
+Author: Tarun Singh Tanwar <tarunsinghtanwar14@gmail.com>
+Date:   Tue Jul 13 21:29:17 2021 +0530
+
+    added show all and details for every camp
+
+[33mcommit 494dcc78d74df02beb3d7842b23b859e807dfec8[m
+Author: Tarun Singh Tanwar <tarunsinghtanwar14@gmail.com>
+Date:   Tue Jul 13 12:24:09 2021 +0530
+
+    added seed database
+
+[33mcommit 5053356cd893ca987923cf5bc1fa12ccd3411262[m
+Author: Tarun Singh Tanwar <tarunsinghtanwar14@gmail.com>
+Date:   Mon Jul 12 18:48:48 2021 +0530
+
+    created app.js and installed dependencies for project camper
