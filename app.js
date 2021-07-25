@@ -72,7 +72,9 @@ app.delete('/campgrounds/:id', catchAsync(async (req,res)=>{
 	await Campground.findByIdAndDelete(id);
 	res.redirect('/campgrounds');
 }))
-
+app.all('*',(req,res,next)=>{
+	res.send('404!!')
+})
 //this is to throw errors
 app.use((err,req,res,next)=>{
 	res.send("Something went wrong!");
