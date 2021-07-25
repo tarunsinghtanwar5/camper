@@ -6,6 +6,7 @@ const db = mongoose.connection;
 const Campground = require('./models/campground');
 const ejsMate = require('ejs-mate');
 const catchAsync=require('./utils/catchAsync');
+const ExpressError = require('./utils/ExpressError');
 mongoose
 	.connect('mongodb://localhost:27017/camper', { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => {
@@ -73,11 +74,13 @@ app.delete('/campgrounds/:id', catchAsync(async (req,res)=>{
 	res.redirect('/campgrounds');
 }))
 app.all('*',(req,res,next)=>{
-	res.send('404!!')
+	next(new ExpressError('Page not found',404));
 })
 //this is to throw errors
 app.use((err,req,res,next)=>{
-	res.send("Something went wrong!");
+	const {statusCode=500,message='Something went wrong'}=err;
+	res.status(statusCode).send(message);
+	
 })
 
 app.listen(3000, () => {
