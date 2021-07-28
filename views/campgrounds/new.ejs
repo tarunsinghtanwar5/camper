@@ -6,21 +6,21 @@
         <form action="/campgrounds" method="POST" novalidate class="validate-form" >
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="title" name="title" required>
+                <input class="form-control" type="text" id="title" name="campground[title]" required>
                 <div class="valid-feedback">
       Great Name!
     </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" id="location" name="location" required>
+                <input class="form-control" type="text" id="location" name="campground[location]" required>
                 <div class="valid-feedback">
       Looks like a real location
     </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id="image" name="image" required>
+                <input class="form-control" type="text" id="image" name="campground[image]" required>
                 <div class="valid-feedback">
       Looks good!
     </div>
@@ -30,7 +30,7 @@
                 <div class="input-group">
                     <span class="input-group-text" id="price-label">$</span>
                     <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
-                        aria-describedby="price-label" name="price" required>
+                        aria-describedby="price-label" name="campground[price]" required>
                         <div class="valid-feedback">
       Yaaay!
     </div>

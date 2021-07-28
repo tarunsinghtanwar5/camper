@@ -6,7 +6,7 @@
         <form action="/campgrounds/<%=camp._id%>?_method=PUT" method="POST" novalidate class="validate-form">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="title" name="title"
+                <input class="form-control" type="text" id="title" name="campground[title]"
                     value="<%=camp.title %>" required>
                     <div class="valid-feedback">
        Great Name!
@@ -14,7 +14,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" id="location" name="location"
+                <input class="form-control" type="text" id="location" name="campground[location]"
                     value="<%=camp.location %>" required>
                     <div class="valid-feedback">
       Looks like a real location
@@ -22,7 +22,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id="image" name="image"
+                <input class="form-control" type="text" id="image" name="campground[image]"
                     value="<%=camp.image %>" required>
                     <div class="valid-feedback">
       Looks good!
@@ -33,7 +33,7 @@
                 <div class="input-group">
                     <span class="input-group-text" id="price-label">$</span>
                     <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
-                        aria-describedby="price-label" name="price" value="<%=camp.price %>" required>
+                        aria-describedby="price-label" name="campground[price]" value="<%=camp.price %>" required>
                         <div class="valid-feedback">
      Yaaay!
     </div>
