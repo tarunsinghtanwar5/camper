@@ -4,7 +4,7 @@ const catchAsync = require('../utils/catchAsync');
 const ExpressError = require('../utils/ExpressError');
 const Campground = require('../models/campground');
 const { campgroundSchema } = require('../schemas.js');
-
+const isLoggedIn = require('../middleware')
 //validating server side so that no one can request from postman and all something that is broken
 const validateCampground = (req, res, next) => {
     const { error } = campgroundSchema.validate(req.body);
@@ -22,11 +22,11 @@ router.get('/', catchAsync(async (req, res) => {
 }))
 
 //create new
-router.get('/new', (req, res) => {
+router.get('/new',isLoggedIn,(req, res) => { 
     res.render('campgrounds/new');
 })
 
-router.post('/', validateCampground, catchAsync(async (req, res, next) => {
+router.post('/',isLoggedIn, validateCampground, catchAsync(async (req, res, next) => {
     const camp = new Campground(req.body);
     await camp.save();
     req.flash('success','Successfully made a new campground');
@@ -50,7 +50,7 @@ router.get('/:id', catchAsync(async (req, res) => {
 
 //edit
 
-router.get('/:id/edit', catchAsync(async (req, res) => {
+router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
     const { id } = req.params;
     const camp = await Campground.findById(id);
     req.flash('success', 'Successfully updated a new campground');
@@ -61,17 +61,18 @@ router.get('/:id/edit', catchAsync(async (req, res) => {
     res.render('campgrounds/edit', { camp })
 }))
 
-router.put('/:id', validateCampground, catchAsync(async (req, res) => {
+router.put('/:id', isLoggedIn, validateCampground, catchAsync(async (req, res) => {
     const { id } = req.params;
     const camp = await Campground.findByIdAndUpdate(id, { ...req.body });
     res.redirect(`/campgrounds/${camp._id}`)
 }))
 //delete
 
-router.delete('/:id', catchAsync(async (req, res) => {
+router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
     const { id } = req.params;
     await Campground.findByIdAndDelete(id);
     res.redirect('/campgrounds');
 }))
+
 
 module.exports = router;
