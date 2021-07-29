@@ -7,10 +7,15 @@ const CampgroundSchema =new Schema({
     price: Number,
     description: String,
     location: String,
+    author: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }],
     reviews:[{ 
         type: Schema.Types.ObjectId,
         ref:'Review'
     }]
+   
 })
 //deleting all reviews if a campground is deleted 
 CampgroundSchema.post('findOneAndDelete', async function (doc) {
