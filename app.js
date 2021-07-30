@@ -55,7 +55,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 //middlware to use success on every route 
-app.use((req, res,next) => {
+app.use((req,res,next) => {
 	// if(!['/login', '/register', '/'].includes(req.originalUrl)) {
 	// 	req.session.returnTo = req.originalUrl;
 	// }
