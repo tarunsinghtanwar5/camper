@@ -20,25 +20,12 @@ const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 50; i++) {
         const randomLocation = Math.floor(Math.random() * 1000);
-        var price = Math.floor(Math.random() * 20) + 10;
+        const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
             author: "6102b80b653aa03bfcedb7bc",
             location: `${cities[randomLocation].city}, ${cities[randomLocation].state}`,
             title: `${randArray(descriptors)} ${randArray(places)}`, 
-            images: [
-                {
-                    
-                    url: 'https://res.cloudinary.com/camperimg/image/upload/v1627745233/Camper/hbnixuafv89um5oedtne.jpg',
-                    filename: 'Camper/hbnixuafv89um5oedtne'
-                },
-                {
-                    
-                    url: 'https://res.cloudinary.com/camperimg/image/upload/v1627746161/Camper/clepanvzrybxxpmgsbzf.jpg',
-                    filename: 'Camper/clepanvzrybxxpmgsbzf'
-                }
-               
-            ]
-,
+            image: 'https://source.unsplash.com/collection/483251',
             description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolores vero perferendis laudantium, consequuntur voluptatibus nulla architecto, sit soluta esse iure sed labore ipsam a cum nihil atque molestiae deserunt!',
             price
         })
@@ -50,6 +37,5 @@ const seedDB = async () => {
 seedDB().then(() => {
     mongoose.connection.close();
 })
-
 
 
