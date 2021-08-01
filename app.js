@@ -74,7 +74,9 @@ app.use('/', userRoutes);
 app.use('/campgrounds', campgroundsRoutes);
 app.use('/campgrounds/:id/reviews', reviewsRoutes);
 app.use(express.static(path.join(__dirname, 'public')))
-
+app.use('/',(req, res,)=>{
+	res.render('main')
+})
 //Review post
 
 app.all('*', (req, res, next) => {
