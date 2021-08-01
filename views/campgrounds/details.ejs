@@ -1,14 +1,9 @@
 <% layout('layouts/boilerplate')%>
     <link rel="stylesheet" href="/stylesheets/stars.css">
-    
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-
-
 
     <div class="row">
         <div class="col-6">
-            <div id='map' style='width: 650p; height: 300px;'></div>
+        
             <div id="carouselcamp" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <% camp.images.forEach((img, i)=> { %>
@@ -63,6 +58,7 @@
 
         </div>
         <div class="col-6">
+            <div id='map' style='width: 650p; height: 300px;'></div>
             <% if(currentUser){ %>
                 <h2 class="h2">Leave a Review</h2>
                 <form action="/campgrounds/<%= camp._id %>/reviews" method="POST" class="mb-3 validate-form" novalidate>

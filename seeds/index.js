@@ -18,7 +18,7 @@ const randArray = (arr) => arr[Math.floor(Math.random() * arr.length)]     //ret
 // adding seed data with random names from the files
 const seedDB = async () => {
     await Campground.deleteMany({});
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 400; i++) {
         const randomLocation = Math.floor(Math.random() * 1000);
         var price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
@@ -43,7 +43,10 @@ const seedDB = async () => {
             price,
             geometry: {
                 type: "Point",
-                coordinates: [-113.1331, 47.0202]
+                coordinates: [
+                    cities[randomLocation].longitude,
+                    cities[randomLocation].latitude
+                ]
             }
         })
 
