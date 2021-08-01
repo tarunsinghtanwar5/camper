@@ -13,12 +13,12 @@ module.exports.campNew=(req, res) => {
     res.render('campgrounds/new');
 }
 module.exports.campCreate = async (req, res, next) => {
-    const geoDATA=await geocoder.forwardGeocode({
+    const geoData=await geocoder.forwardGeocode({
         query:req.body.campground.location,
         limit:1
     }).send();
-    console.log(geoDATA); //this is the location
     const camp = new Campground(req.body.campground);
+    camp.geometry = geoData.body.features[0].geometry;
     camp.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
     console.log(camp)
     camp.author = req.user._id;
