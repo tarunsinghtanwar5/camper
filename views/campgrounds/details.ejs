@@ -25,9 +25,9 @@
                 </button>
                 <% } %>
             </div>
-            <div class="card mb-3">
+            <div class="card mb-3 dark">
                 
-                        <div class="card-body">
+                        <div class="card-body dark">
                             <h5 class="card-title">
                                 <%= camp.title%>
                             </h5>
@@ -35,16 +35,16 @@
                                 <%= camp.description%>
                             </p>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item text-muted">
+                        <ul class="list-group list-group-flush dark">
+                            <li class="list-group-item text-muted dark">
                                 <%= camp.location%>
                             </li>
-                            <li class="list-group-item ">Submitted by: <%= camp.author.username %> 
+                            <li class="list-group-item dark ">Submitted by: <%= camp.author.username %> 
                             </li>
-                            <li class="list-group-item">$<%= camp.price %>/night</li>
+                            <li class="list-group-item dark">$<%= camp.price %>/night</li>
                         </ul>
                         <% if( currentUser && camp.author.equals(currentUser._id)){ %>
-                            <div class="card-body">
+                            <div class="card-body dark">
                                 <a class="card-link btn btn-info" href="/campgrounds/<%=camp._id%>/edit">Edit</a>
                                 <form class="d-inline" action="/campgrounds/<%=camp._id%>?_method=DELETE" method="POST">
                                     <button class="btn btn-danger">Delete</button>
@@ -61,8 +61,8 @@
             <div id='map' style='width: 650p; height: 300px;'></div>
             <% if(currentUser){ %>
                 <h2 class="h2">Leave a Review</h2>
-                <form action="/campgrounds/<%= camp._id %>/reviews" method="POST" class="mb-3 validate-form" novalidate>
-                    <div class="mb-3">
+                <form action="/campgrounds/<%= camp._id %>/reviews" method="POST" class="mb-3 validate-form dark" novalidate>
+                    <div class="mb-3 dark">
                         <fieldset class="starability-heartbeat">
 
                             <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1"
@@ -89,9 +89,9 @@
                 </form>
                 <% } %>
                     <%for(let review of camp.reviews){ %>
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-stitle">
+                        <div class="card mb-3 dark">
+                            <div class="card-body dark">
+                                <h5 class="card-stitle ">
                                     <%=review.author.username%>
                                 </h5>
 

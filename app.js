@@ -20,7 +20,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require("helmet");
 var dbUrl=process.env.DB_URL;
 const MongoDBStore = require('connect-mongo')(session);
-dbUrl=process.env.DB_URL||'mongodb://localhost:27017/camper';
+dbUrl='mongodb://localhost:27017/camper';
 mongoose
 	.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true,useFindAndModify:false })
 	.then(() => {
