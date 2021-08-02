@@ -18,8 +18,11 @@ const User= require('./models/user');
 const userRoutes = require('./routes/users');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require("helmet");
+var dbUrl=process.env.DB_URL;
+const MongoDBStore = require('connect-mongo')(session);
+dbUrl=process.env.DB_URL||'mongodb://localhost:27017/camper';
 mongoose
-	.connect('mongodb://localhost:27017/camper', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true,useFindAndModify:false })
+	.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true,useFindAndModify:false })
 	.then(() => {
 		console.log('MONGO CONNECTION OPEN!!!');
 	})
@@ -38,9 +41,20 @@ app.use(mongoSanitize());
 app.use(helmet({contentSecurityPolicy:false}));
 
 //session
+const secret = process.env.SECRET || 'thisisnotasecret'
+const store = new MongoDBStore({
+	url: dbUrl,
+	secret,
+	touchAfter: 24 * 60 * 60
+});
+store.on("error", function (e) {
+	console.log("SESSION STORE ERROR", e)
+})
+
 const sessionConfig ={
+	store,
 	name:'session',
-	secret: 'thisisnotasecret',
+	secret,
 	resave:false,
 	saveUninitialized:true,
 	cookie:{
