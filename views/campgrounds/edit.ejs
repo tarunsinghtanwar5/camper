@@ -5,7 +5,7 @@
         <form action="/campgrounds/<%=camp._id%>?_method=PUT" method="POST" novalidate class="validate-form" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
-                <input class="form-control" type="text" id="title" name="campground[title]"
+                <input class="form-control dark" type="text" id="title" name="campground[title]"
                     value="<%=camp.title %>" required>
                     <div class="valid-feedback">
        Great Name!
@@ -13,7 +13,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" id="location" name="campground[location]"
+                <input class="form-control dark" type="text" id="location" name="campground[location]"
                     value="<%=camp.location %>" required>
                     <div class="valid-feedback">
       Looks like a real location
@@ -23,8 +23,8 @@
             <div class="mb-3">
                 <label class="form-label" for="price">Campground Price</label>
                 <div class="input-group">
-                    <span class="input-group-text" id="price-label">$</span>
-                    <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                    <span class="input-group-text dark" id="price-label">$</span>
+                    <input type="text" class="form-control dark" id="price" placeholder="0.00" aria-label="price"
                         aria-describedby="price-label" name="campground[price]" value="<%=camp.price %>" required>
                         <div class="valid-feedback">
      Yaaay!
@@ -34,15 +34,15 @@
 
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" type="text" id="description"
+                <textarea class="form-control dark" type="text" id="description"
                     name="campground[description]" required>
                     <%= camp.description%></textarea>
                     <div class="valid-feedback">
      Perfect!
     </div>
     <div class="input-group mb-3 mt-3">
-  <input type="file" class="form-control" id="image" name="image" multiple>
-  <label class="input-group-text" for="image">Upload Images</label>
+  <input type="file" class="form-control dark" id="image" name="image" multiple>
+  <label class="input-group-text dark" for="image">Upload Images</label>
 </div>
             </div>
 <div class="mb-3">
