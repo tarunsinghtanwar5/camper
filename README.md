@@ -1,6 +1,12 @@
-# camper
-Camps visit and review project
-Find camps in any area of USA, read reviews for them
+# Camper
+Camper is a project that lets your view and review camps all around the world. <br />
+https://guarded-plains-61244.herokuapp.com/  <br />
+The project includes:
+1) Interactive map cluster for all the camps  <br />
+2) User authentication and authorization    <br />
+3) Review system with animated star review  <br />
+4) System-wide Dark Theme  <br />
+
 
 ![ Alt text](a.png) [](a.png)
 
@@ -15,3 +21,4 @@ Find camps in any area of USA, read reviews for them
 ![ Alt text](f.png) [](f.png)
 
 ![ Alt text](g.png) [](g.png)
+
