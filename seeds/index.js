@@ -28,12 +28,12 @@ const seedDB = async () => {
             images: [
                 {
                     
-                    url: 'https://res.cloudinary.com/camperimg/image/upload/v1627745233/Camper/hbnixuafv89um5oedtne.jpg',
+                    url: 'https://res.cloudinary.com/camperimg/image/upload/v1627907576/Camper/nvpgag5lu90jq6o9ay8k.jpg',
                     filename: 'Camper/hbnixuafv89um5oedtne'
                 },
                 {
                     
-                    url: 'https://res.cloudinary.com/camperimg/image/upload/v1627746161/Camper/clepanvzrybxxpmgsbzf.jpg',
+                    url: 'https://res.cloudinary.com/camperimg/image/upload/v1627907661/Camper/i1ne0jpskix842bi9bfw.jpg',
                     filename: 'Camper/clepanvzrybxxpmgsbzf'
                 }
                
@@ -57,6 +57,4 @@ const seedDB = async () => {
 seedDB().then(() => {
     mongoose.connection.close();
 })
-
-
 

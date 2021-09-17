@@ -5,14 +5,14 @@
             <form action="/campgrounds" method="POST" novalidate class="validate-form" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Title</label>
-                    <input class="form-control" type="text" id="title" name="campground[title]" required>
+                    <input class="form-control dark" type="text" id="title" name="campground[title]" required>
                     <div class="valid-feedback">
                         Great Name!
                     </div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="location">Location</label>
-                    <input class="form-control" type="text" id="location" name="campground[location]" required>
+                    <input class="form-control dark" type="text" id="location" name="campground[location]" required>
                     <div class="valid-feedback">
                         Looks like a real location
                     </div>
@@ -20,10 +20,10 @@
                 
             
                 <div class="mb-3">
-                    <label class="form-label" for="price">Campground Price</label>
+                    <label class="form-label dark" for="price">Campground Price</label>
                     <div class="input-group">
-                        <span class="input-group-text" id="price-label">$</span>
-                        <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price"
+                        <span class="input-group-text dark" id="price-label">$</span>
+                        <input type="text" class="form-control dark" id="price" placeholder="0.00" aria-label="price"
                             aria-describedby="price-label" name="campground[price]" required>
                         <div class="valid-feedback">
                             Yaaay!
@@ -32,8 +32,8 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="description">Description</label>
-                    <textarea class="form-control" type="text" id="description" name="campground[description]"
+                    <label class="form-label dark" for="description">Description</label>
+                    <textarea class="form-control dark" type="text" id="description" name="campground[description]"
                         required></textarea>
                     <div class="valid-feedback">
                         Perfect!
@@ -41,8 +41,8 @@
 
                 </div>
 <div class="input-group mb-3 mt-3">
-  <input type="file" class="form-control" id="image" name="image" multiple>
-  <label class="input-group-text" for="image">Upload Images</label>
+  <input type="file" class="form-control dark" id="image" name="image" multiple>
+  <label class="input-group-text dark" for="image">Upload Images</label>
 </div>
                 <div class="mb-3 d-grid">
                     <button class="btn btn-success">Add Campground</button>
